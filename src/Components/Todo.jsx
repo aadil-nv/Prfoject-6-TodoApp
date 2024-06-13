@@ -22,7 +22,7 @@ const Todo = () => {
 
   const deleteTodo = (id)=>{
     setTodoList((prvTodos)=>{
-        prvTodos.filter((todo)=>todo.id !== id)
+        return prvTodos.filter((todo)=>todo.id !== id)
     })
   }
 
@@ -31,7 +31,7 @@ const Todo = () => {
       {/* --------------title------------- */}
 
       <div className=" flex items-center mt-7 gap-2">
-        <img src={todo_icon} alt="" className="w-8"></img>
+        <img  src={todo_icon} alt="" className="w-8"></img>
         <h1 className="text-3xl font-semibold "> To-Do List</h1>
       </div>
 
@@ -59,7 +59,7 @@ const Todo = () => {
       {/* --------------Todo list------------- */}
       <div>
         {todoList.map((item , index)=>{
-            return <TodoItems key={index} text={item.text} id={item.id} isComplete={item.isComplete}/>
+            return <TodoItems key={index} text={item.text} id={item.id} isComplete={item.isComplete} deleteTodo={deleteTodo}/>
         })}
         
       </div>
